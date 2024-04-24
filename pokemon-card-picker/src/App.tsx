@@ -1,26 +1,31 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./styles.css";
+import { Pokemon } from "./Pokemon";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import "./App.css";
 
-function App() {
+export default function App() {
+  const [inputValue, setInputValue] = useState<number | "">(0);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <h1>Pokemon card picker</h1>
+        <input
+          style={{ marginRight: "10px" }}
+          type="number"
+          value={inputValue}
+          onChange={(e) => {
+            const newValue = e.target.value;
+            setInputValue(newValue === "" ? "" : Number(newValue));
+          }}
+        ></input>
+        <Link to={inputValue.toString()}>Visit Pokemon</Link>
+
+        <Routes>
+          <Route path=":id" element={<Pokemon />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
-
-export default App;
