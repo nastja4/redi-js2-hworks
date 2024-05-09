@@ -1,0 +1,22 @@
+{
+  "name": "node-ts-playground",
+  "version": "0.0.0",
+  "description": "This a playground for node classes",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "build:watch": "npm run build -- --watch --preserveWatchOutput",
+    "prestart": "npm run build",
+    "start": "node --enable-source-maps .",
+    "start:dev": "ts-node .",
+    "dev": "nodemon ."
+  },
+  "author": "Andra",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/node": "^20.12.7",
+    "nodemon": "^3.1.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.4.5"
+  }
+}
