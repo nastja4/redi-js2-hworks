@@ -1,5 +1,5 @@
 import http from "http";
-import { userRouter, users } from "./routes/users";
+import { userRouter } from "./routes/users";
 import { handleNotFound } from "./not-found";
 
 const server = http.createServer((req, res) => {
